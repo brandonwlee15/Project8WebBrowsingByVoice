@@ -291,12 +291,26 @@ if (!('webkitSpeechRecognition' in window)) {
       create_email = false;
       createEmail();
     }
+
+    // ADDED CODE
     if (final_transcript) //if final_transcript is NOT empty string 
     {
       console.log("ONEND final_transcript: " + final_transcript);
       final_transcript_parsedarray = final_transcript.split(" ");
       console.log("final_transcript_parsedarray: " + final_transcript_parsedarray);
+      
+      if (final_transcript_parsedarray.length < 2)
+      {
+        // Assuming that all commands follow "(CLICK, ENTER, SCROLL) ___"
+        console.log("Sorry that is not a recognized command");
+      }
+
+      else 
+      {
+        console.log("Processing command");
+      }
     }
+    // END OF ADDED CODE
   };
   recognition.onresult = function(event) {
     var interim_transcript = '';
