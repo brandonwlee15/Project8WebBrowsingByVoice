@@ -309,12 +309,12 @@ if (!('webkitSpeechRecognition' in window)) {
       {
         console.log("Processing command");
         var verb = final_transcript_parsedarray[0].toLowerCase();
-        // var arg = final_transcript_parsedarray[1].toLowerCase();
+        var arg = final_transcript_parsedarray[1].toLowerCase();
 
-        var arg = "";
-        for (int i=1; i<final_transcript_parsedarray.length; i++){
-          arg += final_transcript_parsedarray[i] + " ";
-        }
+        // var arg = "";
+        // for (int i=1; i<final_transcript_parsedarray.length; i++){
+        //   arg += final_transcript_parsedarray[i] + " ";
+        // }
         arg.trim(); //Remove extra " " at end
 
         console.log("verb: " + verb);
