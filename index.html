@@ -291,6 +291,9 @@ if (!('webkitSpeechRecognition' in window)) {
       create_email = false;
       createEmail();
     }
+    if (final_transcript) {
+      console.log("ONEND final_transcript: " + final_transcript);
+    }
   };
   recognition.onresult = function(event) {
     var interim_transcript = '';
