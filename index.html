@@ -308,6 +308,10 @@ if (!('webkitSpeechRecognition' in window)) {
       else 
       {
         console.log("Processing command");
+        var verb = final_transcript_parsedarray[0].toLowerCase();
+        var arg = final_transcript_parsedarray[1].toLowerCase();
+        console.log("verb: " + verb);
+        console.log("arg: " + arg);
       }
     }
     // END OF ADDED CODE
