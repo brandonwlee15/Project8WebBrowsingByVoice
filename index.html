@@ -313,13 +313,13 @@ if (!('webkitSpeechRecognition' in window)) {
         console.log("verb: " + verb);
         console.log("arg: " + arg);
 
-        if ((verb !== "click") || (verb !== "enter") || (verb !== "scroll"))
+        if ((verb === "click") || (verb === "enter") || (verb === "scroll"))
         {
-          console.log("Sorry that is not a recognized command");
+          console.log("Carrying out command");
         }
         else
         {
-          console.log("Carrying out command");
+          console.log("Sorry that is not a recognized command");
         }
       }
     }
