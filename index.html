@@ -302,24 +302,66 @@ if (!('webkitSpeechRecognition' in window)) {
       if (final_transcript_parsedarray.length < 2)
       {
         // Assuming that all commands follow "(CLICK, ENTER, SCROLL) ___"
-        console.log("Sorry that is not a recognized command");
+        console.log("Sorry - that is not a recognized command");
       }
 
       else 
       {
         console.log("Processing command");
         var verb = final_transcript_parsedarray[0].toLowerCase();
-        var arg = final_transcript_parsedarray[1].toLowerCase();
+        // var arg = final_transcript_parsedarray[1].toLowerCase();
+
+        var arg = "";
+        for (int i=1; i<final_transcript_parsedarray; i++){
+          arg += final_transcript_parsedarray[i] + " ";
+        }
+        arg.trim(); //Remove extra " " at end
+
         console.log("verb: " + verb);
         console.log("arg: " + arg);
 
-        if ((verb === "click") || (verb === "enter") || (verb === "scroll"))
-        {
-          console.log("Carrying out command");
-        }
-        else
-        {
-          console.log("Sorry that is not a recognized command");
+
+        // if ((verb === "click") || (verb === "enter") || (verb === "scroll"))
+        // {
+        //   console.log("Carrying out command");
+        // }
+        // else
+        // {
+        //   console.log("Sorry that is not a recognized command");
+        // }
+
+         switch(verb) {
+          case "click":
+            console.log("handling click");
+            $("a,button").each(function() {
+              if($(this)[0].tagName === "A"){
+                if (arg === $(this)[0].text.trim().toLowerCase()){
+                  location.href=$(this).attr("href");
+                }
+              } 
+            })
+            break;
+          case "scroll":
+            console.log("handling scroll");
+            if (arg === "down"){
+              $('html, body').animate({
+                scrollTop: $(document).scrollTop()+150
+              }, 1000);
+            } else if (arg === "up"){
+              $('html, body').animate({
+                scrollTop: $(document).scrollTop()-150
+              }, 1000);
+            }
+            break;
+          case "enter":
+            console.log("handling enter");
+            var inputfield = $(document.activeElement)
+            var currentinput = inputfield.val();
+            var newstring = currentinput + arg + " "
+            inputfield.val(newstring);
+            break;
+          default:
+            alert("Sorry - that is not a recognized command");
         }
       }
     }
