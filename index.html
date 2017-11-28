@@ -315,7 +315,7 @@ if (!('webkitSpeechRecognition' in window)) {
         // for (int i=1; i<final_transcript_parsedarray.length; i++){
         //   arg += final_transcript_parsedarray[i] + " ";
         // }
-        arg.trim(); //Remove extra " " at end
+        // arg.trim(); //Remove extra " " at end
 
         console.log("verb: " + verb);
         console.log("arg: " + arg);
@@ -344,10 +344,12 @@ if (!('webkitSpeechRecognition' in window)) {
           case "scroll":
             console.log("handling scroll");
             if (arg === "down"){
+              console.log("scrolling down");
               $('html, body').animate({
                 scrollTop: $(document).scrollTop()+150
               }, 1000);
             } else if (arg === "up"){
+              console.log("scrolling up");
               $('html, body').animate({
                 scrollTop: $(document).scrollTop()-150
               }, 1000);
@@ -355,9 +357,9 @@ if (!('webkitSpeechRecognition' in window)) {
             break;
           case "enter":
             console.log("handling enter");
-            var inputfield = $(document.activeElement)
+            var inputfield = $(document.activeElement);
             var currentinput = inputfield.val();
-            var newstring = currentinput + arg + " "
+            var newstring = currentinput + arg + " ";
             inputfield.val(newstring);
             break;
           default:
