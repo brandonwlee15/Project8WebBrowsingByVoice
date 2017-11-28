@@ -312,7 +312,7 @@ if (!('webkitSpeechRecognition' in window)) {
         // var arg = final_transcript_parsedarray[1].toLowerCase();
 
         var arg = "";
-        for (int i=1; i<final_transcript_parsedarray; i++){
+        for (int i=1; i<final_transcript_parsedarray.length; i++){
           arg += final_transcript_parsedarray[i] + " ";
         }
         arg.trim(); //Remove extra " " at end
