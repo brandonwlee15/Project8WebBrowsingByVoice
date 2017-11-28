@@ -291,8 +291,11 @@ if (!('webkitSpeechRecognition' in window)) {
       create_email = false;
       createEmail();
     }
-    if (final_transcript) {
+    if (final_transcript) //if final_transcript is NOT empty string 
+    {
       console.log("ONEND final_transcript: " + final_transcript);
+      final_transcript_parsedarray = final_transcript.split(" ");
+      console.log("final_transcript_parsedarray: " + final_transcript_parsedarray);
     }
   };
   recognition.onresult = function(event) {
