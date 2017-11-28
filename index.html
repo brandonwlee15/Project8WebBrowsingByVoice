@@ -312,6 +312,15 @@ if (!('webkitSpeechRecognition' in window)) {
         var arg = final_transcript_parsedarray[1].toLowerCase();
         console.log("verb: " + verb);
         console.log("arg: " + arg);
+
+        if ((verb !== "click") || (verb !== "enter") || (verb !== "scroll"))
+        {
+          console.log("Sorry that is not a recognized command");
+        }
+        else
+        {
+          console.log("Carrying out command");
+        }
       }
     }
     // END OF ADDED CODE
