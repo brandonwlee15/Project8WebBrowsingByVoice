@@ -366,7 +366,7 @@ if (!('webkitSpeechRecognition' in window)) {
             break;
           case "enter":
             console.log("handling enter");
-            var inputfield = $(document.activeElement);
+            var inputfield = $("#command");
             console.log("inputfield ID: " + inputfield.attr("id"));
             var currentinput = inputfield.val();
             var newstring = currentinput + arg + " ";
