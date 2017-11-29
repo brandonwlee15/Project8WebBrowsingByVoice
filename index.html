@@ -370,6 +370,7 @@ if (!('webkitSpeechRecognition' in window)) {
             var currentinput = inputfield.val();
             var newstring = currentinput + arg + " ";
             inputfield.val(newstring);
+            console.log("newstring: " + newstring);
             break;
           default:
             alert("Sorry - that is not a recognized command");
