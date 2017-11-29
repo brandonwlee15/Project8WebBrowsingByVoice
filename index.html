@@ -36,6 +36,8 @@
   .center {
     padding: 10px;
     text-align: center;
+    display: none; 
+    /*ADDED ^*/
   }
   .final {
     color: black;
@@ -83,6 +85,10 @@
     background-color:transparent;
     padding: 0;
   }
+
+  #gradient {
+    height: 300%;
+  }
 </style>
 
 
@@ -128,6 +134,7 @@
   <span id="interim_span" class="interim"></span>
   <p>
 </div>
+
 <div class="center">
   <div class="sidebyside" style="text-align:right">
     <button id="copy_button" class="button" onclick="copyButton()">
